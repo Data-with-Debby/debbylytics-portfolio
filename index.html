@@ -1,0 +1,1291 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Deborah Ajayi, Data Analyst and Founder of Debbylytics. Portfolio of dashboards, SQL analysis, business intelligence projects, and a 500+ aspiring data analysts community.">
+  <meta name="theme-color" content="#07162f">
+  <title>Debbylytics | Deborah Ajayi - Data Analyst Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --navy-950: #061225;
+      --navy-900: #07162f;
+      --navy-800: #0d2346;
+      --navy-700: #143465;
+      --gold-600: #c9a84c;
+      --gold-500: #d8ba62;
+      --gold-200: #f1e5bf;
+      --cream: #fbf8ef;
+      --paper: #ffffff;
+      --ink: #162033;
+      --muted: #667085;
+      --line: rgba(22, 32, 51, 0.12);
+      --line-gold: rgba(201, 168, 76, 0.34);
+      --shadow: 0 24px 80px rgba(6, 18, 37, 0.15);
+      --soft-shadow: 0 14px 42px rgba(6, 18, 37, 0.09);
+      --radius: 8px;
+      --max: 1160px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "DM Sans", Arial, sans-serif;
+      color: var(--ink);
+      background: var(--cream);
+      line-height: 1.7;
+      letter-spacing: 0;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: 1rem;
+      top: -4rem;
+      z-index: 999;
+      padding: 0.75rem 1rem;
+      color: var(--navy-900);
+      background: var(--gold-500);
+      border-radius: var(--radius);
+      transition: top 0.2s ease;
+    }
+
+    .skip-link:focus {
+      top: 1rem;
+    }
+
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(6, 18, 37, 0.82);
+      backdrop-filter: blur(18px);
+      transition: background 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .site-header.scrolled {
+      background: rgba(6, 18, 37, 0.96);
+      box-shadow: 0 10px 30px rgba(6, 18, 37, 0.22);
+    }
+
+    .nav-wrap {
+      width: min(var(--max), calc(100% - 2rem));
+      min-height: 76px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: var(--paper);
+      font-weight: 800;
+    }
+
+    .brand-mark {
+      display: grid;
+      width: 42px;
+      height: 42px;
+      place-items: center;
+      border: 1px solid var(--line-gold);
+      border-radius: var(--radius);
+      color: var(--gold-500);
+      background: rgba(201, 168, 76, 0.08);
+      font-family: "Playfair Display", serif;
+      font-size: 1.25rem;
+    }
+
+    .brand small {
+      display: block;
+      color: rgba(255, 255, 255, 0.54);
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.35rem;
+    }
+
+    .nav-links a {
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold-500);
+    }
+
+    .nav-toggle {
+      display: none;
+      width: 44px;
+      height: 44px;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: var(--radius);
+      color: var(--paper);
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 20px;
+      height: 2px;
+      margin: 4px auto;
+      background: currentColor;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      min-height: 100vh;
+      padding: 9.5rem 1rem 4rem;
+      color: var(--paper);
+      background:
+        linear-gradient(135deg, rgba(6, 18, 37, 0.98), rgba(13, 35, 70, 0.92)),
+        radial-gradient(circle at 80% 18%, rgba(201, 168, 76, 0.22), transparent 32%),
+        var(--navy-900);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: 0.18;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: linear-gradient(to bottom, black, transparent 88%);
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      width: min(var(--max), 100%);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(330px, 0.85fr);
+      gap: clamp(2rem, 6vw, 5rem);
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      margin-bottom: 1rem;
+      color: var(--gold-500);
+      font-size: 0.76rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--gold-500);
+      box-shadow: 0 0 0 6px rgba(201, 168, 76, 0.12);
+    }
+
+    h1,
+    h2,
+    h3 {
+      letter-spacing: 0;
+    }
+
+    h1 {
+      max-width: 800px;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(3.1rem, 8vw, 6.9rem);
+      line-height: 0.98;
+    }
+
+    h1 span {
+      color: var(--gold-500);
+    }
+
+    .hero-subtitle {
+      max-width: 720px;
+      margin-top: 1.5rem;
+      color: rgba(255, 255, 255, 0.78);
+      font-size: clamp(1rem, 2vw, 1.18rem);
+    }
+
+    .hero-actions,
+    .card-actions,
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 2rem;
+    }
+
+    .button {
+      display: inline-flex;
+      min-height: 48px;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      padding: 0 1.2rem;
+      border: 1px solid transparent;
+      border-radius: var(--radius);
+      font-size: 0.82rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button-gold {
+      color: var(--navy-950);
+      background: linear-gradient(135deg, var(--gold-500), var(--gold-200));
+      box-shadow: 0 16px 36px rgba(201, 168, 76, 0.22);
+    }
+
+    .button-outline {
+      color: var(--paper);
+      border-color: rgba(255, 255, 255, 0.24);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .button-outline:hover {
+      border-color: var(--gold-500);
+      color: var(--gold-500);
+    }
+
+    .button-navy {
+      color: var(--paper);
+      background: var(--navy-900);
+    }
+
+    .hero-panel {
+      border: 1px solid rgba(201, 168, 76, 0.28);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.055);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .panel-top {
+      padding: 1.1rem 1.2rem;
+      border-bottom: 1px solid rgba(201, 168, 76, 0.18);
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      color: rgba(255, 255, 255, 0.62);
+      font-size: 0.76rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .metric {
+      padding: 1.5rem 1.2rem;
+      border-right: 1px solid rgba(255, 255, 255, 0.08);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .metric strong {
+      display: block;
+      color: var(--gold-500);
+      font-family: "Playfair Display", serif;
+      font-size: 2.15rem;
+      line-height: 1;
+    }
+
+    .metric span {
+      display: block;
+      margin-top: 0.35rem;
+      color: rgba(255, 255, 255, 0.58);
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+
+    .tool-stack {
+      padding: 1.25rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid rgba(201, 168, 76, 0.28);
+      border-radius: 999px;
+      padding: 0.32rem 0.72rem;
+      color: var(--gold-200);
+      background: rgba(201, 168, 76, 0.08);
+      font-size: 0.76rem;
+      font-weight: 800;
+    }
+
+    .section {
+      padding: clamp(4.5rem, 8vw, 7rem) 1rem;
+    }
+
+    .section:nth-of-type(even) {
+      background: var(--paper);
+    }
+
+    .section-inner {
+      width: min(var(--max), 100%);
+      margin: 0 auto;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(160px, 0.35fr) minmax(0, 1fr);
+      gap: clamp(1.5rem, 4vw, 4rem);
+      align-items: end;
+      margin-bottom: clamp(2rem, 5vw, 3.2rem);
+    }
+
+    .section-label {
+      color: var(--gold-600);
+      font-size: 0.76rem;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .section-title {
+      max-width: 860px;
+      color: var(--navy-900);
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2.2rem, 5vw, 4.4rem);
+      line-height: 1.02;
+    }
+
+    .lead {
+      max-width: 780px;
+      color: var(--muted);
+      font-size: 1.03rem;
+    }
+
+    .about-grid,
+    .leadership-grid,
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(300px, 0.9fr);
+      gap: clamp(1.5rem, 5vw, 4rem);
+      align-items: start;
+    }
+
+    .copy-block p + p {
+      margin-top: 1rem;
+    }
+
+    .copy-block strong {
+      color: var(--navy-900);
+    }
+
+    .lux-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--paper);
+      box-shadow: var(--soft-shadow);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+
+    .lux-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--line-gold);
+      box-shadow: var(--shadow);
+    }
+
+    .profile-card {
+      padding: 1.5rem;
+      border-top: 4px solid var(--gold-600);
+    }
+
+    .profile-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.9rem 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .profile-row:last-child {
+      border-bottom: 0;
+    }
+
+    .profile-row span {
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+
+    .profile-row strong {
+      color: var(--navy-900);
+      text-align: right;
+    }
+
+    .leadership-card {
+      padding: 1.45rem;
+      min-height: 100%;
+    }
+
+    .leadership-card .number {
+      display: block;
+      margin-bottom: 0.7rem;
+      color: var(--gold-600);
+      font-family: "Playfair Display", serif;
+      font-size: 2.3rem;
+      line-height: 1;
+    }
+
+    .leadership-card h3,
+    .project-card h3,
+    .testimonial-card h3,
+    .github-card h3 {
+      color: var(--navy-900);
+      font-size: 1.15rem;
+      line-height: 1.3;
+    }
+
+    .leadership-card p,
+    .project-card p,
+    .testimonial-card p,
+    .github-card p {
+      margin-top: 0.75rem;
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .dashboard-strip {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .dashboard-shot {
+      min-height: 100%;
+      padding: 0;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: var(--paper);
+      color: var(--ink);
+      overflow: hidden;
+      position: relative;
+      box-shadow: var(--soft-shadow);
+    }
+
+    .dashboard-shot img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      object-position: top center;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .dashboard-caption {
+      padding: 1rem;
+    }
+
+    .shot-label {
+      color: var(--gold-600);
+      font-size: 0.72rem;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .dashboard-caption h3 {
+      margin-top: 0.35rem;
+      color: var(--navy-900);
+    }
+
+    .dashboard-caption p {
+      margin-top: 0.5rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .project-grid,
+    .github-grid,
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      padding: 1.35rem;
+    }
+
+    .project-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: start;
+      margin-bottom: 1rem;
+    }
+
+    .badge {
+      white-space: nowrap;
+      border: 1px solid var(--line-gold);
+      border-radius: 999px;
+      padding: 0.24rem 0.62rem;
+      color: #8c6a1f;
+      background: #fff8df;
+      font-size: 0.7rem;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .project-details {
+      display: grid;
+      gap: 0.65rem;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--line);
+    }
+
+    .detail-row {
+      display: grid;
+      grid-template-columns: 98px minmax(0, 1fr);
+      gap: 0.7rem;
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+
+    .detail-row strong {
+      color: var(--navy-900);
+      font-size: 0.74rem;
+      text-transform: uppercase;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-top: auto;
+      padding-top: 1rem;
+    }
+
+    .tag {
+      border-radius: 999px;
+      padding: 0.26rem 0.62rem;
+      color: var(--navy-800);
+      background: rgba(20, 52, 101, 0.08);
+      font-size: 0.72rem;
+      font-weight: 800;
+    }
+
+    .dark-section {
+      color: var(--paper);
+      background:
+        linear-gradient(135deg, var(--navy-950), var(--navy-800));
+    }
+
+    .dark-section .section-title,
+    .dark-section h3 {
+      color: var(--paper);
+    }
+
+    .dark-section .lead,
+    .dark-section p {
+      color: rgba(255, 255, 255, 0.68);
+    }
+
+    .dark-card {
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.045);
+      box-shadow: none;
+    }
+
+    .dark-card:hover {
+      border-color: rgba(201, 168, 76, 0.42);
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.24);
+    }
+
+    .github-card,
+    .testimonial-card {
+      padding: 1.35rem;
+    }
+
+    .github-card a {
+      display: inline-flex;
+      margin-top: 1rem;
+      color: var(--gold-500);
+      font-weight: 900;
+    }
+
+    .testimonial-card {
+      min-height: 210px;
+    }
+
+    .certificate-card {
+      display: grid;
+      grid-template-columns: minmax(220px, 0.4fr) minmax(0, 1fr);
+      gap: 1.5rem;
+      align-items: center;
+      padding: 1.35rem;
+    }
+
+    .certificate-card img {
+      width: 100%;
+      max-height: 360px;
+      object-fit: contain;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+    }
+
+    .quote-mark {
+      color: var(--gold-500);
+      font-family: "Playfair Display", serif;
+      font-size: 3rem;
+      line-height: 0.8;
+    }
+
+    .resume-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 1.5rem;
+      align-items: center;
+      padding: clamp(1.4rem, 4vw, 2rem);
+      border: 1px solid var(--line-gold);
+      border-radius: var(--radius);
+      background: linear-gradient(135deg, #fff, #fff7dd);
+      box-shadow: var(--soft-shadow);
+    }
+
+    .contact-section {
+      padding-bottom: 3rem;
+    }
+
+    .contact-card {
+      padding: 1.4rem;
+    }
+
+    .contact-card a {
+      color: var(--gold-600);
+      font-weight: 900;
+      overflow-wrap: anywhere;
+    }
+
+    .site-footer {
+      padding: 1.5rem 1rem;
+      color: rgba(255, 255, 255, 0.58);
+      background: var(--navy-950);
+    }
+
+    .footer-inner {
+      width: min(var(--max), 100%);
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      font-size: 0.86rem;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .reveal,
+      .button,
+      .lux-card,
+      .site-header {
+        transition: none;
+      }
+    }
+
+    @media (max-width: 980px) {
+      .hero-inner,
+      .about-grid,
+      .leadership-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .card-grid,
+      .dashboard-strip {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .nav-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 76px;
+        left: 1rem;
+        right: 1rem;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 0.7rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: var(--radius);
+        background: var(--navy-900);
+        box-shadow: var(--shadow);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        padding: 0.85rem;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .hero {
+        min-height: auto;
+        padding-top: 7.5rem;
+      }
+
+      h1 {
+        font-size: clamp(3rem, 15vw, 4.6rem);
+      }
+
+      .section-head,
+      .project-grid,
+      .github-grid,
+      .testimonial-grid,
+      .certificate-card,
+      .card-grid,
+      .dashboard-strip,
+      .resume-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-actions,
+      .card-actions,
+      .contact-actions {
+        flex-direction: column;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .metrics-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .detail-row {
+        grid-template-columns: 1fr;
+        gap: 0.1rem;
+      }
+
+      .project-top {
+        flex-direction: column;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="header">
+    <div class="nav-wrap">
+      <a class="brand" href="#top" aria-label="Debbylytics home">
+        <span class="brand-mark">D</span>
+        <span>Debbylytics <small>Data Analyst Portfolio</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="nav-links" id="nav-links">
+        <a href="#about">About</a>
+        <a href="#leadership">Leadership</a>
+        <a href="#dashboards">Dashboards</a>
+        <a href="#projects">Projects</a>
+        <a href="#github">GitHub</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero-inner">
+        <div class="hero-copy reveal">
+          <div class="eyebrow">Data Analyst and Founder of Debbylytics</div>
+          <h1>Turning data into <span>clear business stories.</span></h1>
+          <p class="hero-subtitle">
+            I am Deborah Ajayi, a data analyst, educator, and community leader building Power BI dashboards,
+            Excel reports, SQL analysis, and learning spaces that help people make better decisions with data.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-gold" href="#projects">View analytics projects</a>
+            <a class="button button-outline" href="https://github.com/data-with-debby" target="_blank" rel="noreferrer">GitHub profile</a>
+            <a class="button button-outline" href="assets/Deborah-Ajayi-Resume.pdf" download>Download resume</a>
+          </div>
+        </div>
+
+        <aside class="hero-panel reveal" aria-label="Portfolio metrics">
+          <div class="panel-top">
+            <span>Analytics Snapshot</span>
+            <span>2026</span>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><strong>500+</strong><span>Aspiring analysts in community</span></div>
+            <div class="metric"><strong>6+</strong><span>Portfolio projects</span></div>
+            <div class="metric"><strong>4.42</strong><span>CGPA at OAU</span></div>
+            <div class="metric"><strong>3+</strong><span>Core analytics tools</span></div>
+          </div>
+          <div class="tool-stack">
+            <span class="pill">Power BI</span>
+            <span class="pill">Excel</span>
+            <span class="pill">SQL</span>
+            <span class="pill">DAX</span>
+            <span class="pill">SPSS</span>
+            <span class="pill">Data Storytelling</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="section-inner">
+        <div class="section-head reveal">
+          <div class="section-label">About</div>
+          <h2 class="section-title">A data analyst with an educator's clarity and a founder's ownership.</h2>
+        </div>
+        <div class="about-grid">
+          <div class="copy-block reveal">
+            <p>
+              I am <strong>Deborah Ajayi</strong>, the founder of <strong>Debbylytics</strong>. My work combines
+              data analytics, business intelligence, and education: I clean messy data, design decision-ready
+              dashboards, and explain insights in a way stakeholders can actually use.
+            </p>
+            <p>
+              My background in Mathematics and Integrated Science Education from Obafemi Awolowo University
+              strengthened my quantitative reasoning, teaching ability, and structured problem-solving.
+              Those skills now shape how I approach analytics: clear questions, careful cleaning, readable
+              visuals, and practical recommendations.
+            </p>
+            <p>
+              I am actively building a public project portfolio across Power BI, Excel, SQL, business reporting,
+              customer service analytics, sales performance, and project performance dashboards while growing a
+              community for aspiring data analysts.
+            </p>
+          </div>
+          <div class="lux-card profile-card reveal">
+            <div class="profile-row"><span>Professional title</span><strong>Data Analyst and Founder of Debbylytics</strong></div>
+            <div class="profile-row"><span>Brand</span><strong>Debbylytics</strong></div>
+            <div class="profile-row"><span>Phone</span><strong>+234 810 318 3539</strong></div>
+            <div class="profile-row"><span>Education</span><strong>OAU, Ile-Ife</strong></div>
+            <div class="profile-row"><span>Degree</span><strong>B.Sc. Mathematics & Integrated Science Education</strong></div>
+            <div class="profile-row"><span>Core value</span><strong>Insight, clarity, community</strong></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section dark-section" id="leadership">
+      <div class="section-inner">
+        <div class="section-head reveal">
+          <div class="section-label">Leadership</div>
+          <h2 class="section-title">Building more than dashboards.</h2>
+        </div>
+        <div class="card-grid">
+          <article class="lux-card dark-card leadership-card reveal">
+            <span class="number">01</span>
+            <h3>Founder of Debbylytics</h3>
+            <p>
+              Debbylytics is my data brand for analytics projects, tutorials, dashboard breakdowns,
+              and practical learning resources for people growing into data careers.
+            </p>
+          </article>
+          <article class="lux-card dark-card leadership-card reveal">
+            <span class="number">500+</span>
+            <h3>Aspiring data analysts community</h3>
+            <p>
+              I support a growing community of aspiring analysts with learning direction, encouragement,
+              practical data conversations, and project-building momentum.
+            </p>
+          </article>
+          <article class="lux-card dark-card leadership-card reveal">
+            <span class="number">DTT</span>
+            <h3>Data Table Talks</h3>
+            <p>
+              A Debbylytics initiative designed for honest, practical conversations about analytics tools,
+              portfolio building, beginner challenges, and data career growth.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="dashboards">
+      <div class="section-inner">
+        <div class="section-head reveal">
+          <div class="section-label">Dashboards</div>
+          <h2 class="section-title">Screenshots and dashboard stories.</h2>
+        </div>
+        <p class="lead reveal">
+          A sample of my hands-on analytics work across Power BI, Excel, SQL, business intelligence,
+          customer service, sales, and project performance reporting.
+        </p>
+        <div class="dashboard-strip" style="margin-top: 2rem;">
+          <article class="dashboard-shot reveal">
+            <img src="assets/sales-performance-dashboard.png?v=3" alt="Sales performance dashboard showing sales, profit, margin, quantity, discount, and category performance">
+            <div class="dashboard-caption">
+              <div class="shot-label">Power BI Dashboard</div>
+              <h3>Sales Performance Dashboard</h3>
+              <p>Tracks total sales, profit margin, category performance, monthly trends, and how discounting affects profit.</p>
+            </div>
+          </article>
+          <article class="dashboard-shot reveal">
+            <img src="assets/call-center-dashboard.png?v=3" alt="Business intelligence dashboard showing call volume, answer rate, resolution rate, and customer satisfaction">
+            <div class="dashboard-caption">
+              <div class="shot-label">Business Intelligence</div>
+              <h3>Call center performance dashboard</h3>
+              <p>Analyzes call volume by topic, agent performance, answer rate, resolution rate, and customer satisfaction.</p>
+            </div>
+          </article>
+          <article class="dashboard-shot reveal">
+            <img src="assets/netflix-dashboard.png?v=3" alt="Netflix content performance dashboard showing content type, ratings, genres, audience segmentation, and production trends">
+            <div class="dashboard-caption">
+              <div class="shot-label">Excel Dashboard</div>
+              <h3>Netflix Performance Dashboard</h3>
+              <p>Shows content distribution, audience segmentation, rating patterns, top genres, and release-year trends.</p>
+            </div>
+          </article>
+          <article class="dashboard-shot reveal">
+            <img src="assets/sprocket-dashboard.png" alt="Sprocket Central sales performance dashboard showing revenue, profit, customer segment, and online versus offline orders">
+            <div class="dashboard-caption">
+              <div class="shot-label">Customer Acquisition</div>
+              <h3>Sprocket Central sales performance</h3>
+              <p>Highlights revenue, profit, customer segments, product lines, order channels, and brand performance.</p>
+            </div>
+          </article>
+          <article class="dashboard-shot reveal">
+            <img src="assets/foreshore-dashboard.png" alt="Legendary Foreshore project performance and conversion dashboard showing budget, cost, leads, conversion, and risk metrics">
+            <div class="dashboard-caption">
+              <div class="shot-label">Project Performance</div>
+              <h3>Legendary Foreshore conversion dashboard</h3>
+              <p>Compares budget, actual cost, cost variance, leads, conversions, and project risk signals.</p>
+            </div>
+          </article>
+          <article class="dashboard-shot reveal">
+            <img src="assets/sql-analysis.png" alt="MySQL Workbench screenshot showing SQL analysis queries and result grid">
+            <div class="dashboard-caption">
+              <div class="shot-label">SQL Analysis</div>
+              <h3>SQL querying and data exploration</h3>
+              <p>Demonstrates filtering, grouping, ranking, and extracting business answers directly from database tables.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="section-inner">
+        <div class="section-head reveal">
+          <div class="section-label">Portfolio</div>
+          <h2 class="section-title">Recruiter-focused analytics projects.</h2>
+        </div>
+        <div class="project-grid">
+          <article class="lux-card project-card reveal">
+            <div class="project-top">
+              <h3>Sales Performance Dashboard</h3>
+              <span class="badge">Power BI</span>
+            </div>
+            <p>Interactive dashboard for monitoring revenue, product categories, regional performance, and monthly growth.</p>
+            <div class="project-details">
+              <div class="detail-row"><strong>Problem</strong><span>Management needs a fast way to identify revenue drivers and weak regions.</span></div>
+              <div class="detail-row"><strong>Process</strong><span>Cleaned data, modelled relationships, created DAX measures, and designed KPI visuals.</span></div>
+              <div class="detail-row"><strong>Impact</strong><span>Turns raw sales records into a clear performance review for business decisions.</span></div>
+            </div>
+            <div class="tags"><span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">KPI Tracking</span><span class="tag">Retail Analytics</span></div>
+          </article>
+
+          <article class="lux-card project-card reveal">
+            <div class="project-top">
+              <h3>Superstore Profitability Analysis</h3>
+              <span class="badge">Excel</span>
+            </div>
+            <p>Profitability review showing loss-making categories, discount impact, and region-level performance gaps.</p>
+            <div class="project-details">
+              <div class="detail-row"><strong>Problem</strong><span>Business needs to understand where profit is leaking despite strong sales activity.</span></div>
+              <div class="detail-row"><strong>Process</strong><span>Used pivot tables, calculated margins, category breakdowns, and chart-based storytelling.</span></div>
+              <div class="detail-row"><strong>Impact</strong><span>Recommends discount control and category prioritization to protect profit.</span></div>
+            </div>
+            <div class="tags"><span class="tag">Excel</span><span class="tag">Pivot Tables</span><span class="tag">Profit Margin</span><span class="tag">Reporting</span></div>
+          </article>
+
+          <article class="lux-card project-card reveal">
+            <div class="project-top">
+              <h3>SQL Sales Data Exploration</h3>
+              <span class="badge">SQL</span>
+            </div>
+            <p>SQL queries for revenue, top products, customer behavior, monthly trends, and repeat purchase signals.</p>
+            <div class="project-details">
+              <div class="detail-row"><strong>Problem</strong><span>Stakeholders need business answers directly from structured sales tables.</span></div>
+              <div class="detail-row"><strong>Process</strong><span>Used joins, grouping, filtering, aggregations, and ranking logic to extract insights.</span></div>
+              <div class="detail-row"><strong>Impact</strong><span>Shows ability to query data independently before dashboard development.</span></div>
+            </div>
+            <div class="tags"><span class="tag">SQL</span><span class="tag">Joins</span><span class="tag">Aggregations</span><span class="tag">Business Questions</span></div>
+          </article>
+
+          <article class="lux-card project-card reveal">
+            <div class="project-top">
+              <h3>Call Center Business Intelligence Dashboard</h3>
+              <span class="badge">Power BI</span>
+            </div>
+            <p>Service performance dashboard built to track call volume, resolution rate, answer rate, and agent satisfaction patterns.</p>
+            <div class="project-details">
+              <div class="detail-row"><strong>Problem</strong><span>Support teams need visibility into the topics, agents, and time windows driving workload.</span></div>
+              <div class="detail-row"><strong>Process</strong><span>Built KPI cards, topic breakdowns, hourly call trends, and agent-level comparisons.</span></div>
+              <div class="detail-row"><strong>Impact</strong><span>Helps managers spot service bottlenecks and improve staffing, training, and response quality.</span></div>
+            </div>
+            <div class="tags"><span class="tag">Power BI</span><span class="tag">Customer Service</span><span class="tag">KPI Cards</span><span class="tag">Agent Performance</span></div>
+          </article>
+
+          <article class="lux-card project-card reveal">
+            <div class="project-top">
+              <h3>Netflix Content Performance Dashboard</h3>
+              <span class="badge">Excel</span>
+            </div>
+            <p>Entertainment analytics dashboard showing content volume, audience categories, ratings, genres, and release trends.</p>
+            <div class="project-details">
+              <div class="detail-row"><strong>Problem</strong><span>Content teams need a simple view of catalogue structure and audience-facing patterns.</span></div>
+              <div class="detail-row"><strong>Process</strong><span>Prepared the dataset, grouped content types, built charts, and summarized production trends.</span></div>
+              <div class="detail-row"><strong>Impact</strong><span>Supports content strategy discussions with clear visuals instead of scattered title records.</span></div>
+            </div>
+            <div class="tags"><span class="tag">Excel</span><span class="tag">Content Analytics</span><span class="tag">Segmentation</span><span class="tag">Dashboarding</span></div>
+          </article>
+
+          <article class="lux-card project-card reveal">
+            <div class="project-top">
+              <h3>Legendary Foreshore Project Performance</h3>
+              <span class="badge">Power BI</span>
+            </div>
+            <p>Project performance and conversion dashboard covering budget variance, actual cost, leads, conversions, and delays.</p>
+            <div class="project-details">
+              <div class="detail-row"><strong>Problem</strong><span>Project leaders need to compare planned performance against actual cost, timing, and conversion results.</span></div>
+              <div class="detail-row"><strong>Process</strong><span>Designed executive KPI cards, variance visuals, location comparisons, and risk expectation views.</span></div>
+              <div class="detail-row"><strong>Impact</strong><span>Improves project review by connecting cost control, delivery risk, and conversion performance.</span></div>
+            </div>
+            <div class="tags"><span class="tag">Power BI</span><span class="tag">Project Analytics</span><span class="tag">Budget Variance</span><span class="tag">Conversion Rate</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section dark-section" id="github">
+      <div class="section-inner">
+        <div class="section-head reveal">
+          <div class="section-label">GitHub Projects</div>
+          <h2 class="section-title">Public proof of learning, analysis, and documentation.</h2>
+        </div>
+        <div class="github-grid">
+          <article class="lux-card dark-card github-card reveal">
+            <h3>GitHub Profile</h3>
+            <p>
+              My GitHub profile is linked throughout this portfolio so recruiters can review my data projects,
+              SQL work, notebooks, dashboard documentation, and ongoing learning progress in one place.
+            </p>
+            <a href="https://github.com/data-with-debby" target="_blank" rel="noreferrer">Visit github.com/data-with-debby</a>
+          </article>
+          <article class="lux-card dark-card github-card reveal">
+            <h3>Project documentation checklist</h3>
+            <p>
+              For each repository, include the business question, dataset source, cleaning steps, tools used,
+              dashboard screenshot, insights, recommendations, and what you would improve next.
+            </p>
+            <a href="#projects">Review project structure</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-inner">
+        <div class="section-head reveal">
+          <div class="section-label">Testimonials</div>
+          <h2 class="section-title">Social proof, ready for growth.</h2>
+        </div>
+        <div class="testimonial-grid">
+          <article class="lux-card testimonial-card reveal">
+            <div class="quote-mark">"</div>
+            <h3>Kabirat Bello</h3>
+            <p>Deborah is a phenomenal teacher. I love how she teaches and breaks every concept down little by little until I understand it.</p>
+          </article>
+          <article class="lux-card testimonial-card reveal">
+            <div class="quote-mark">"</div>
+            <h3>Comfort Ajayi</h3>
+            <p>Deborah has great leadership skills. She makes instructions and submissions easy for her followers, and she knows how to carry people along.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-inner">
+        <div class="lux-card certificate-card reveal">
+          <img src="assets/data-analysis-certificate.png" alt="Data Analysis Professional Certification presented to Ajayi Deborah Titilayo with distinction">
+          <div>
+            <div class="section-label">Certification</div>
+            <h2 class="section-title" style="font-size: clamp(2rem, 4vw, 3.2rem);">Data Analysis Professional Certification.</h2>
+            <p class="lead">Completed a Data Analysis Professional Certification Program with distinction, strengthening my foundation in practical analytics, reporting, and business intelligence.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-inner">
+        <div class="resume-panel reveal">
+          <div>
+            <div class="section-label">Resume</div>
+            <h2 class="section-title" style="font-size: clamp(2rem, 4vw, 3.2rem);">Make hiring easy.</h2>
+            <p class="lead">My data analyst CV is attached for recruiters, hiring managers, and collaborators who want a quick summary of my experience and skills.</p>
+          </div>
+          <a class="button button-navy" href="assets/Deborah-Ajayi-Resume.pdf" download>Download resume</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="contact">
+      <div class="section-inner">
+        <div class="section-head reveal">
+          <div class="section-label">Contact</div>
+          <h2 class="section-title">Open to data analyst roles, analytics projects, and community collaborations.</h2>
+        </div>
+        <div class="contact-grid">
+          <div class="copy-block reveal">
+            <p>
+              I am available for data analyst opportunities, dashboard projects, data cleaning work,
+              educational analytics, and collaborations connected to Debbylytics or Data Table Talks.
+            </p>
+            <div class="contact-actions">
+              <a class="button button-gold" href="mailto:ajayideborah5@gmail.com">Email me</a>
+              <a class="button button-navy" href="https://github.com/data-with-debby" target="_blank" rel="noreferrer">GitHub</a>
+            </div>
+          </div>
+          <div class="lux-card contact-card reveal">
+            <p><strong>Email</strong><br><a href="mailto:ajayideborah5@gmail.com">ajayideborah5@gmail.com</a></p>
+            <p style="margin-top: 1rem;"><strong>Phone</strong><br><a href="tel:+2348103183539">+234 810 318 3539</a></p>
+            <p style="margin-top: 1rem;"><strong>GitHub</strong><br><a href="https://github.com/data-with-debby" target="_blank" rel="noreferrer">github.com/data-with-debby</a></p>
+            <p style="margin-top: 1rem;"><strong>LinkedIn</strong><br><a href="https://www.linkedin.com/in/deborah-ajayi-b79100234" target="_blank" rel="noreferrer">linkedin.com/in/deborah-ajayi-b79100234</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>Debbylytics - Deborah Ajayi</span>
+      <span>&copy; <span id="year"></span> Data Analyst Portfolio</span>
+    </div>
+  </footer>
+
+  <script>
+    const header = document.querySelector("#header");
+    const navToggle = document.querySelector(".nav-toggle");
+    const navLinks = document.querySelector("#nav-links");
+    const year = document.querySelector("#year");
+
+    function syncHeader() {
+      header.classList.toggle("scrolled", window.scrollY > 10);
+    }
+
+    navToggle.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+      navToggle.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    navLinks.addEventListener("click", (event) => {
+      if (event.target instanceof HTMLAnchorElement) {
+        navLinks.classList.remove("open");
+        navToggle.setAttribute("aria-expanded", "false");
+      }
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
+    window.addEventListener("scroll", syncHeader, { passive: true });
+    year.textContent = new Date().getFullYear();
+    syncHeader();
+  </script>
+</body>
+</html>
+
+
